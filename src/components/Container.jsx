@@ -1,25 +1,19 @@
-import { useContext } from 'react';
-import Split from 'react-split';
-
-//components
-import Editor from './Editor';
-
 import { Box, styled } from '@mui/material';
-
-import { DataContext } from '../context/DataProvider';
+import Editor from './Editor';
+import { useState } from 'react';
 
 const Container = styled(Box)`
     background-color: #060606;
-    height: 55vh;
+    height: 57vh;
     display: flex;
-    padding-top: 10px;
-    resize: vertical;
-    overflow: auto;
+    padding: 12px 0;
 `
 
 const Code = () => {
 
-    const { html, css, js, setHtml, setCss, setJs } = useContext(DataContext);
+    const [html, setHtml] = useState('');
+    const [css, setCss] = useState('');
+    const [js, setJs] = useState('');
 
     return (
         <Container>
@@ -51,4 +45,4 @@ const Code = () => {
     )
 }
 
-export default Code;
+export default Code; 
